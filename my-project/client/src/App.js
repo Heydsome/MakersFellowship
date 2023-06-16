@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
-
+import './index.css';
+import Button from './components/Button';
+import Header from './components/Header';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import NewProject from './components/NewProject';
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <Header title="NB" subtitle="Where Startups Connect" />
+              
+                  <Button text="Create MVP" onClick={()=>{window.location.href ='/newProject'}} />
+                  <Button text="Search Projects" />
+                
+                
+              </>
+            }
+          />
+          <Route
+            path="/newProject"
+            element={
+              <>
+                <NewProject></NewProject>
+              </>
+            }
+          />
+          <Route
+            path="/Projects"
+            element={
+              <>
+                
+              </>
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
